@@ -1,43 +1,6 @@
-// var commandLineArgs = process.argv;
-// console.log(commandLineArgs);
-
-// console.log(process);
-
-// const printProfileData = profileDataArr => {
-//     for (let i = 0; i < profileDataArr.length; i++) {
-//         console.log(profileDataArr[i]);
-//     }
-
-//     console.log("=========================");
-
-//     profileDataArr.forEach(profileItem => console.log(profileItem));
-// };
-// // const printProfileData = profileDataArr => console.log(profileDataArr);
-
-// printProfileData(profileDataArgs);
-
-/********************************************************************************/
 const inquirer = require("inquirer");
-// const fs = require("fs");
-// const generateSite = require("./utils/generate-site.js");
 const { writeFile, copyFile } = require("./utils/generate-site.js");
 const generatePage = require("./src/page-template.js");
-
-// const pageHTML = generatePage(name, github);
-
-// // const profileDataArgs = process.argv.slice(2, process.argv.length);
-// // const profileDataArgs = process.argv.slice(2);
-
-// // const name = profileDataArgs[0];
-// // const github = profileDataArgs[1];
-// //same as ...
-// // const [name, github] = profileDataArgs;
-
-// fs.writeFile("index.html", pageHTML, err => {
-//     if (err) throw err;
-
-//     console.log("Portfolio complete! Check out index.html to see the output!");
-// });
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -157,28 +120,6 @@ const promptProject = portfolioData => {
         }
     });
 };
-
-// promptUser()
-//     .then(promptProject)
-//     .then(portfolioData => {
-//         const pageHTML = generatePage(portfolioData);
-        
-//         fs.writeFile("./dist/index.html", pageHTML, err => {
-//             if (err) throw new Error(err);
-
-//             console.log("Page created! Check out index.html in this directory to see it!");
-            
-//             fs.copyFile('./src/style.css', './dist/style.css', err => {
-//                 if (err) throw new Error(err);
-//                 // if (err) {
-//                 //     console.log(err);
-//                 //     return;
-//                 // }
-//                 console.log('Style sheet copied successfully!');
-//             });
-//         });
-//     })
-// ;
 
 promptUser()
     .then(promptProject)
